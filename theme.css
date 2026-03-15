@@ -322,7 +322,7 @@ div[data-role="controlgroup"] a[data-role="button"] {
 /* ==========================================================================
    4. INLINED: rounding.css — rounded corners on everything
    ========================================================================== */
-:root { --rounding: 5px; }
+:root { --rounding: 0px; }
 
 progress { border-radius: var(--rounding); }
 progress::-webkit-progress-bar { border-radius: var(--rounding); }
@@ -1051,17 +1051,15 @@ html,
    NO added border — adding one was shrinking their small portrait images.
    ========================================================================== */
 .cardBox.visualCardBox {
-    border: 4px solid transparent !important;
+    border: none !important;
     outline: none !important;
     box-shadow: none !important;
-    box-sizing: border-box !important;
 }
 
 .cardBox {
-    border: 4px solid transparent !important;
+    border: none !important;
     outline: none !important;
     box-shadow: none !important;
-    box-sizing: border-box !important;
 }
 
 /* Step 2: Kill blue on all inner card elements. */
@@ -1102,18 +1100,16 @@ html body .focuscontainer-y .card:focus {
 html body .card:focus .cardBox,
 html body .card:focus .cardBox.visualCardBox,
 html body .card.show-focus:focus .cardBox {
-    border: 4px solid #ffffff !important;
+    border: none !important;
     outline: none !important;
-    box-shadow: none !important;
-    box-sizing: border-box !important;
+    box-shadow: 0 0 0 4px #ffffff !important;
 }
 
 html body .card:hover .cardBox,
 html body .card:hover .cardBox.visualCardBox {
-    border: 4px solid #ffffff !important;
+    border: none !important;
     outline: none !important;
-    box-shadow: none !important;
-    box-sizing: border-box !important;
+    box-shadow: 0 0 0 4px #ffffff !important;
 }
 
 
@@ -1155,13 +1151,12 @@ html body .card:hover .cardBox.visualCardBox {
     position: relative !important;
 }
 
-/* White border on focus/hover — same approach as movie cards: pre-allocated
-   transparent border on cardBox (no layout shift), turns white on focus.
-   Text below the image is intentionally un-bordered, same as movie title text. */
+/* White border on focus/hover via box-shadow — draws outside the element,
+   no layout shift, no inset gap that would expose the thumbnail image. */
 #castContent .cardBox,
 #guestCastContent .cardBox {
-    border: 4px solid transparent !important;
-    box-sizing: border-box !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
 html body #castContent .card:focus .cardBox,
@@ -1170,9 +1165,9 @@ html body #castContent .card:hover .cardBox,
 html body #guestCastContent .card:focus .cardBox,
 html body #guestCastContent .card.show-focus:focus .cardBox,
 html body #guestCastContent .card:hover .cardBox {
-    border: 4px solid #ffffff !important;
+    border: none !important;
     outline: none !important;
-    box-shadow: none !important;
+    box-shadow: 0 0 0 4px #ffffff !important;
 }
 
 /* Restore text visibility: name and role below the cast portrait. */
@@ -1202,9 +1197,30 @@ html body #guestCastContent .card:hover .cardBox {
    ==========================================================================
    indicator_corner.css sets background: rgba(var(--indicator), 0.8).
    With --indicator: 255,255,255 that renders white. Override to black. */
-.countIndicator {
+/* Clip card content so the image can't bleed outside the card boundaries,
+   which was causing the thumbnail to show through beside the indicators.
+   Jellyfin renders thumbnails as background-image on cardImageContainer,
+   so overflow must be clipped there too. */
+.cardScalable {
+    overflow: hidden !important;
+    background-color: #000000 !important;
+    border-radius: var(--rounding) !important;
+}
+.cardImageContainer {
+    overflow: hidden !important;
+}
+
+.countIndicator,
+.playedIndicator {
     background: #000000 !important;
     color: #ffffff !important;
+    border-radius: 0 !important;
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    z-index: 2 !important;
 }
 
 /* ==========================================================================
@@ -1213,12 +1229,10 @@ html body #guestCastContent .card:hover .cardBox {
    base.css sets cardOverlayFab-primary and cardOverlayButtonIcon to
    background-color: transparent. Make them black so the play/check/more
    icons have a visible background when the hover overlay appears. */
-.cardOverlayFab-primary,
-.cardOverlayFab-primary *,
+/* Black background on action buttons and their contents */
 .cardOverlayButton,
 .cardOverlayButton *,
 .cardOverlayButton-hover,
-.cardOverlayButton-centered,
 .btnCardOptions,
 .btnCardOptions *,
 .cardOverlayButtonIcon,
@@ -1230,6 +1244,22 @@ html body #guestCastContent .card:hover .cardBox {
     box-shadow: none !important;
     border-radius: 0 !important;
 }
+
+/* Play button — background only on the fab itself, not the centering wrapper */
+.cardOverlayButton-centered {
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+.cardOverlayFab-primary {
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
 
 /* Step 4: Clear any remaining inner focus rings (overlay buttons, etc.) */
 .cardBox *:focus,
