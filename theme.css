@@ -1295,7 +1295,7 @@ html body .headerButton:focus:not(.headerUserButtonRound) {
 
 .navMenuOption:hover,
 .navMenuOption:focus {
-    background-color: transparent !important;
+    background-color: rgba(255, 255, 255, 0.15) !important;
     color: #ffffff !important;
 }
 
@@ -1391,4 +1391,17 @@ html body .fab {
 
 .currentTimeText {
     display: none !important;
+}
+
+/* ==========================================================================
+   PREFERENCES MENU PAGE — centered layout with hover highlight
+   ========================================================================== */
+#myPreferencesMenuPage .readOnlyContent {
+    max-width: 600px !important;
+    margin: 0 auto !important;
+}
+
+#myPreferencesMenuPage .emby-button.listItem-border:hover,
+#myPreferencesMenuPage .emby-button.listItem-border:focus {
+    background-color: rgba(255, 255, 255, 0.15) !important;
 }
