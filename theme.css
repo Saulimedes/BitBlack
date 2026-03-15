@@ -1,0 +1,1239 @@
+/* ==========================================================================
+   Jellyfin — Ultrachromic Monochromic, pitch black + white accent
+   Target: LG webOS TV app (layout-tv)
+   All external CSS is inlined. No @import dependencies.
+   ========================================================================== */
+
+/* STATUS SUMMARY (as of last session):
+   ✅ DONE  — Blue card border replaced with white on focus/hover (movie/TV cards)
+   ✅ DONE  — Inner blue border on card images killed (cardScalable, cardImageContainer)
+   ✅ DONE  — Tab buttons (Home/Favorites): transparent bg, white text on hover/active
+   ✅ DONE  — Header icon buttons: transparent hover, white text
+   ✅ DONE  — Header fixed at top (position:fixed + content padding); no longer scrolls away
+   ✅ DONE  — Cast/crew person cards: natural portrait size, white border on focus, text visible
+   ✅ DONE  — All external CSS inlined; smallercast.css removed entirely
+   ⚠ TODO  — Preferences menu width regression (was caused by cardBox override, now removed)
+*/
+
+
+/* ==========================================================================
+   1. INLINED: jf_font.css — Plus Jakarta Sans font
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+body, h1, h2, h3, h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.emby-textarea {
+    font-family: monospace;
+    font-size: 10pt;
+}
+
+
+/* ==========================================================================
+   2. INLINED: fixes.css — layout tweaks, media player, alignments
+   ========================================================================== */
+.mainDetailButtons {
+    font-size: 120%;
+}
+@media all and (min-width: 100em) {
+    .button-flat {
+        margin: .2em !important;
+        padding: .85em !important;
+    }
+}
+@media all and (max-width: 100em) {
+    .mainDetailButtons {
+        font-size: 155%;
+    }
+    .detailButton {
+        max-width: 15vw !important;
+    }
+}
+.startTimeText, .endTimeText {
+    width: 3.4em;
+    display: block;
+    text-align: center;
+}
+.osdTitle {
+    margin-left: 0.5em;
+}
+.videoOsdBottom {
+    padding-top: 1em;
+}
+.skinHeader-withBackground.osdHeader {
+    height: 5em;
+}
+@media (min-aspect-ratio: 1.98/1) {
+    .detailImageContainer .card { width: 21vw !important; }
+    .detailRibbon { padding-left: 28.45vw !important; }
+    .detailPagePrimaryContent { padding-left: 28.45vw !important; }
+    .detailPageContent { padding-left: 28.45vw !important; }
+}
+@media (min-aspect-ratio: 2.7/1) {
+    .detailImageContainer .card { width: 16vw !important; }
+    .detailRibbon { padding-left: 23.45vw !important; }
+    .detailPagePrimaryContent { padding-left: 23.45vw !important; }
+    .detailPageContent { padding-left: 23.45vw !important; }
+}
+.emby-input,
+.emby-textarea {
+    padding: .4em .55em;
+}
+.emby-select {
+    padding: .35em 1.9em .35em .35em;
+}
+.selectArrow {
+    margin-top: 1.05em;
+}
+.layout-mobile :not(.sectionTitleContainer-cards) > .sectionTitle-cards {
+    padding-top: 0em;
+}
+.sectionTitle {
+    margin-left: .4em !important;
+    margin-top: .2em !important;
+    margin-bottom: .2em !important;
+}
+.sectionTitleTextButton > .material-icons {
+    margin: 0;
+}
+.layout-mobile .sectionTitleTextButton > .material-icons {
+    padding-top: .2em;
+}
+.nowPlayingBarCurrentTime {
+    width: 6em;
+}
+.osdTextContainer {
+    margin: 0 !important;
+    margin-top: 0.2em !important;
+    padding-left: 0.5em !important;
+    padding-right: 0.5em !important;
+}
+.headerUserButtonRound {
+    border-radius: 50px !important;
+}
+.navMenuOptionText {
+    margin-top: 0;
+}
+.formDialogHeaderTitle {
+    margin-left: 1em;
+}
+.formDialogContent {
+    margin-bottom: 6.2em;
+}
+.dialogContentInner {
+    padding: .5em 1em 1em;
+    padding-right: 1em;
+    padding-left: 1em;
+}
+.listItem-indexnumberleft {
+    margin: 1em;
+}
+.listItem {
+    padding-left: 1em;
+}
+
+
+/* ==========================================================================
+   3. INLINED: base.css — core layout, animations, homepage tweaks
+   ========================================================================== */
+:root { --indicator: 0, 164, 220; }
+:root { --selection: 0, 164, 220; }
+
+.css-4yt2of {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.card.show-animation:focus > .cardBox {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+div[data-role="controlgroup"] a.ui-btn-active {
+    background: rgba(0, 0, 0, 0.5) !important;
+    color: white !important;
+}
+div[data-role="controlgroup"] a[data-role="button"] {
+    display: table-cell !important;
+    margin: 0 !important;
+}
+.layout-mobile .detailPagePrimaryContainer {
+    background: transparent;
+}
+.layout-mobile .adminDrawerLogo {
+    border-bottom: none;
+}
+.layout-mobile .itemBackdrop {
+    margin-top: 4rem;
+}
+.layout-desktop .detailImageContainer .card {
+    position: fixed !important;
+    top: 10% !important;
+}
+.layout-mobile .detailImageContainer .card {
+    position: absolute !important;
+}
+.headerTabs.sectionTabs {
+    text-size-adjust: 110%;
+    font-size: 110%;
+}
+.pageTitle {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.progressring-spiner {
+    border-color: rgba(var(--accent));
+    border-width: .35em;
+}
+.progressring {
+    margin: .4em;
+}
+.progressring-bg {
+    display: none;
+}
+#itemDetailPage .button-link { color: inherit !important; }
+.cardIndicators,
+.listItemIndicators {
+    right: 0.5em;
+    top: 0.5em;
+}
+.mediaSourceIndicator {
+    left: 0.5em;
+    top: 0.5em;
+}
+@media all and (min-width: 70em) {
+    .cardOverlayFab-primary { background-color: #00000000; }
+    .cardOverlayButtonIcon { background-color: #00000000 !important; }
+    .cardOverlayContainer { background-color: rgba(0, 0, 0, 0.7); }
+}
+@media all and (max-width: 70em) {
+    .cardOverlayFab-primary { background-color: #00000000; }
+    .cardOverlayButtonIcon { background-color: #00000000 !important; }
+    .cardOverlayContainer { background-color: rgba(0, 0, 0, 0.7); }
+    .cardOverlayButton { padding: 0.25em; }
+}
+.nowPlayingPageImage {
+    border: none;
+}
+.upNextDialog-countdownText {
+    color: white;
+}
+.chapterThumb {
+    height: 14vh;
+    min-width: 14vh;
+    box-shadow: 0 0 1.9vh #000;
+}
+.chapterThumbText {
+    font-size: 1em;
+}
+.sliderBubble {
+    background: #0000;
+}
+.chapterThumbTextContainer {
+    right: auto;
+    bottom: 4px;
+    padding: .25em 0.7em;
+}
+.chapterThumbContainer {
+    box-shadow: 0 0 1.9vh #000;
+}
+.sliderBubble {
+    -webkit-transform: translate3d(-50%, -108%, 0);
+    transform: translate3d(-50%, -108%, 0);
+}
+.cardBox-bottompadded {
+    margin-bottom: 0.6em !important;
+}
+.itemsContainer > .card > .cardBox {
+    margin-right: 0.8em;
+    margin-left: 0.6em !important;
+}
+.raised.homeLibraryButton {
+    background: rgba(0, 0, 0, 0.3) !important;
+}
+.raised.homeLibraryButton:hover {
+    background: rgba(0, 0, 0, 0.5) !important;
+    transition: filter 0.2s;
+}
+.raised.homeLibraryButton { transition: filter 0.2s; }
+.homeLibraryButton {
+    min-width: 12em;
+    margin: 0.4em;
+    width: auto !important;
+}
+@media all and (max-width: 26em) {
+    .homeLibraryButton {
+        min-width: 45%;
+        width: auto !important;
+    }
+}
+.listItem:hover {
+    transition: 0.2s;
+    background: rgba(0, 0, 0, 0.4);
+}
+.visualCardBox, .cardImageContainer {
+    box-shadow: none;
+}
+.backgroundProgress > div {
+    background: rgba(0, 0, 0, 0);
+}
+.itemProgressBar {
+    background: rgba(0, 0, 0, 0.25);
+}
+#divRunningTasks span {
+    color: rgba(255, 255, 255, 0.75) !important;
+}
+.button-flat:hover {
+    background: rgba(0, 164, 220, 0.2);
+    color: #00a4dc !important;
+}
+.dashboardSection h3 {
+    margin: .5em .0em .5em .5em;
+}
+.dashboardSection .sectionTitleTextButton > .material-icons.material-icons {
+    margin-top: .5em;
+    margin-bottom: .5em;
+    margin-right: .2em;
+}
+.starIcon {
+    color: rgba(255, 255, 255, .8);
+}
+.listItemIcon {
+    background: #0000 !important;
+}
+.listItem-border {
+    border-color: rgba(255, 255, 255, 0) !important;
+}
+.formDialogFooter-clear,
+.formDialogHeader-clear,
+.innerCardFooterClear {
+    background-color: transparent !important;
+}
+.sliderMarker {
+    width: 3px;
+    border-radius: 2px;
+}
+
+
+/* ==========================================================================
+   4. INLINED: rounding.css — rounded corners on everything
+   ========================================================================== */
+:root { --rounding: 5px; }
+
+progress { border-radius: var(--rounding); }
+progress::-webkit-progress-bar { border-radius: var(--rounding); }
+progress::-moz-progress-bar { border-radius: var(--rounding); }
+progress::-webkit-progress-value { border-radius: var(--rounding); }
+.taskProgressOuter,
+.taskProgressInner {
+    border-radius: var(--rounding) !important;
+}
+.formDialogHeader {
+    border-top-left-radius: var(--rounding);
+    border-top-right-radius: var(--rounding);
+}
+.formDialogFooter {
+    border-bottom-left-radius: var(--rounding);
+    border-bottom-right-radius: var(--rounding);
+}
+.cardOverlayContainer { border-radius: var(--rounding) !important; }
+.missingIndicator,
+.unairedIndicator,
+.detailTable,
+.primaryImageWrapper > img,
+.toast,
+.paperList,
+.cardContent,
+.sessionNowPlayingInnerContent,
+.listItem:hover,
+.cardImage,
+.fab,
+.raised,
+.multiSelectCheckboxOutline,
+.itemSelectionPanel,
+.cardContent-button,
+.cardContent-shadow,
+.itemDetailImage,
+.cardOverlayButton-hover,
+.cardImageContainer,
+.cardPadder,
+.listItemImage,
+.listItemImageButton,
+.listItemButton,
+.headerButton,
+.paper-icon-button-light,
+.innerCardFooter,
+.blurhash-canvas,
+.dialog,
+.countIndicator,
+.playedIndicator,
+.listItemIcon,
+.listItem-border,
+.button-flat,
+.visualCardBox,
+.checkboxOutline,
+.emby-select-withcolor,
+.chapterThumbTextContainer,
+.chapterThumbContainer,
+.chapterThumb,
+.emby-input,
+.emby-textarea,
+.emby-select-withcolor,
+.nowPlayingPageImage,
+.upNextDialog-poster-img,
+.upNextContainer,
+.cardOverlayButtonIcon {
+    border-radius: var(--rounding) !important;
+}
+.actionSheetMenuItem:hover { border-radius: 0 !important; }
+fieldset { border-radius: var(--rounding); }
+.osdPoster img { border-radius: var(--rounding); border: none; }
+.mdl-slider::-moz-range-thumb { border-radius: var(--rounding); }
+.mdl-slider::-ms-thumb { border-radius: var(--rounding); }
+.mdl-slider::-webkit-slider-thumb { border-radius: var(--rounding); }
+div[data-role="controlgroup"] a[data-role="button"]:first-child {
+    border-bottom-left-radius: var(--rounding);
+    border-top-left-radius: var(--rounding);
+}
+div[data-role="controlgroup"] a[data-role="button"]:last-child {
+    border-bottom-right-radius: var(--rounding);
+    border-top-right-radius: var(--rounding);
+}
+#dashboardPage .cardContent,
+#dashboardPage .sessionNowPlayingInnerContent {
+    border-radius: var(--rounding) var(--rounding) 0 0 !important;
+}
+#divVirtualFolders .cardImageContainer,
+#divVirtualFolders .cardContent {
+    border-radius: var(--rounding) var(--rounding) 0 0 !important;
+}
+#userProfilesPage .cardImage,
+#userProfilesPage .cardContent {
+    border-radius: var(--rounding) var(--rounding) 0 0 !important;
+}
+
+
+/* ==========================================================================
+   5. INLINED: episodes_compactlist.css — compact episode list layout
+   ========================================================================== */
+.listItemImage.listItemImage-large.itemAction.lazy {
+    transition: filter 0.2s;
+}
+.listItemImageButton-icon {
+    padding: 0;
+}
+.secondary.listItem-overview.listItemBodyText {
+    height: unset !important;
+    margin: 0;
+}
+.listItemImageButton {
+    margin: auto;
+    font-size: 1.6em !important;
+}
+@media all and (min-width: 100em) {
+    .listItemImage.listItemImage-large.itemAction.lazy { height: 160px !important; }
+    .listItem-content { height: unset !important; }
+    .secondary.listItem-overview.listItemBodyText { height: unset !important; margin: 0; }
+}
+@media all and (max-width: 100em) {
+    .listItemImage.listItemImage-large.itemAction.lazy { height: 160px !important; }
+    .listItem-content { height: unset !important; }
+    .secondary.listItem-overview.listItemBodyText { height: unset !important; margin: 0; }
+}
+.missingIndicator, .unairedIndicator {
+    background: #ae3030eb;
+    padding: .3em .6em;
+    color: #fff;
+}
+.layout-mobile .listItemImageButton {
+    background: rgba(0, 0, 0, 0);
+}
+
+
+/* ==========================================================================
+   6. INLINED: header_transparent-dashboard.css — transparent header on main pages
+   ========================================================================== */
+.skinHeader-withBackground {
+    background-color: transparent;
+}
+@media all and (min-width: 100em) {
+    #indexPage,
+    #moviesPage,
+    #tvRecommendedPage,
+    #musicRecommendedPage {
+        margin-top: 68px;
+        padding-top: 0px !important;
+        overflow-y: scroll;
+    }
+}
+@media all and (max-width: 100em) {
+    #indexPage,
+    #moviesPage,
+    #tvRecommendedPage,
+    #musicRecommendedPage {
+        margin-top: 130px;
+        padding-top: 0.5em !important;
+        overflow-y: scroll;
+    }
+}
+.force-scroll {
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+
+/* ==========================================================================
+   7. INLINED: login_minimalistic.css — minimal login page
+   ========================================================================== */
+#loginPage .readOnlyContent,
+#loginPage form {
+    max-width: 22em;
+}
+#loginPage h1 {
+    display: none;
+}
+#loginPage .padded-left.padded-right.padded-bottom-page {
+    margin-top: 8em;
+}
+#loginPage .raised.cancel.block.btnForgotPassword.emby-button {
+    display: none;
+}
+#loginPage {
+    background: url(https://raw.githubusercontent.com/CTalvio/Ultrachromic/main/assets/background.png) !important;
+    background-size: cover !important;
+}
+
+
+/* ==========================================================================
+   8. INLINED: fields_border.css — input field styling with thin borders
+   ========================================================================== */
+.checkboxOutline,
+.emby-input,
+.emby-textarea,
+.emby-select-withcolor {
+    background: rgba(0, 0, 0, 0.2);
+    border: 0.01em solid rgba(255, 255, 255, 0.22);
+}
+.emby-input:focus,
+.emby-textarea:focus,
+.emby-select-withcolor:focus {
+    background: rgba(0, 0, 0, 0.4) !important;
+}
+.emby-textarea:focus,
+.emby-select-withcolor:focus,
+.emby-input:focus,
+.itemSelectionPanel {
+    border: 0.01em solid rgba(var(--selection), 0.8) !important;
+}
+.emby-checkbox:checked + span + .checkboxOutline {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    border: 0.01em solid rgba(var(--selection), 0.8) !important;
+}
+progress {
+    background: rgba(0, 0, 0, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+}
+progress::-webkit-progress-bar {
+    background: rgba(0, 0, 0, 0.5) !important;
+    border: 0px solid rgba(255, 255, 255, 0.22);
+}
+progress::-moz-progress-bar {
+    background-color: rgba(255, 255, 255, 0.75);
+}
+progress::-webkit-progress-value {
+    background-color: rgba(255, 255, 255, 0.75);
+}
+.taskProgressOuter {
+    background: rgba(0, 0, 0, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+}
+.taskProgressInner {
+    background: rgba(255, 255, 255, 0.75) !important;
+}
+#scheduledTasksPage span {
+    color: rgba(255, 255, 255, 0.75) !important;
+}
+
+
+/* ==========================================================================
+   9. INLINED: indicator_corner.css — corner-positioned card indicators
+   ========================================================================== */
+.cardIndicators,
+.listItemIndicators {
+    right: 0 !important;
+    top: 0 !important;
+}
+.innerCardFooter {
+    border-radius: 0px var(--rounding) !important;
+    box-shadow: 1px -1px 4px 0 rgba(0, 0, 0, 0.3);
+}
+.countIndicator, .playedIndicator {
+    border-radius: 0px var(--rounding) !important;
+    box-shadow: -1px 1px 4px 0 rgba(0, 0, 0, 0.3);
+}
+.countIndicator {
+    background: rgba(var(--indicator), 0.8);
+}
+.playedIndicator, .innerCardFooter {
+    background: rgba(0, 0, 0, 0.4);
+}
+.mediaSourceIndicator {
+    left: 0;
+    top: 0;
+    border-radius: var(--rounding) 0px !important;
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+
+/* ==========================================================================
+   10. INLINED: dark.css — dark theme colors, scrollbars, backgrounds
+   ========================================================================== */
+:root { --accent: 255, 255, 255; }
+:root { --selection: 120, 120, 120; }
+
+.transcodingProgress > div, .itemProgressBarForeground {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.playbackProgress > div {
+    background-color: rgba(255, 255, 255, 0.75);
+}
+.backgroundContainer.withBackdrop {
+    background-color: rgba(0, 0, 0, 0);
+}
+#user_usage_report_table,
+.detailTable {
+    background: rgba(0, 0, 0, .5);
+}
+.detailTableBodyRow-shaded {
+    background: #0000 !important;
+}
+.infoBanner {
+    background: #101010;
+}
+.backgroundProgress > div {
+    background-color: #0000;
+}
+.visualCardBox, .cardImageContainer {
+    box-shadow: none;
+}
+.mdl-switch__input:checked + .mdl-switch__label + .mdl-switch__trackContainer > .mdl-switch__track {
+    background: rgba(120, 120, 120, 0.6);
+}
+.mdl-switch__input:checked + .mdl-switch__label + .mdl-switch__trackContainer > .mdl-switch__thumb {
+    background: white;
+}
+.dashboardSection h3 {
+    margin-left: 0.5em;
+}
+.sessionCardFooter {
+    border: none;
+}
+.paperList,
+.visualCardBox {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.listItem-border {
+    border-color: rgba(255, 255, 255, 0) !important;
+}
+fieldset {
+    border: 1px solid rgba(40, 40, 40, 0.8);
+    border-radius: 0.4em;
+}
+.layout-desktop .detailRibbon {
+    background: rgba(0, 0, 0, .2) !important;
+}
+.itemBackdrop::after {
+    background: rgba(0, 0, 0, .5) !important;
+}
+.appfooter {
+    background: rgba(0, 0, 0, 0.9);
+}
+.button-flat:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+progress {
+    background: rgba(0, 0, 0, 0.5) !important;
+}
+.syncPlayIconCircle {
+    color: rgba(255, 255, 255, 1) !important;
+    text-shadow: none !important;
+}
+@-webkit-keyframes pulse {
+    0% { -webkit-transform: scale(.95); transform: scale(.95); color: rgba(0,0,0,.7); background: rgba(0,0,0,.3); box-shadow: 0 0 0 0 rgba(0,0,0,.3); }
+    70% { -webkit-transform: scale(1); transform: scale(1); color: rgba(0,0,0,.6); background: rgba(0,0,0,0); box-shadow: 0 0 0 60px rgba(0,0,0,0); }
+    to { -webkit-transform: scale(.95); transform: scale(.95); color: rgba(0,0,0,.7); background: rgba(0,0,0,.3); box-shadow: 0 0 0 0 rgba(0,0,0,0); }
+}
+@keyframes pulse {
+    0% { -webkit-transform: scale(.95); transform: scale(.95); color: rgba(0,0,0,.7); background: rgba(0,0,0,.3); box-shadow: 0 0 0 0 rgba(0,0,0,.3); }
+    70% { -webkit-transform: scale(1); transform: scale(1); color: rgba(0,0,0,.6); background: rgba(0,0,0,0); box-shadow: 0 0 0 60px rgba(0,0,0,0); }
+    to { -webkit-transform: scale(.95); transform: scale(.95); color: rgba(0,0,0,.7); background: rgba(0,0,0,.3); box-shadow: 0 0 0 0 rgba(0,0,0,0); }
+}
+@-webkit-keyframes infinite-pulse {
+    0% { -webkit-transform: scale(.95); transform: scale(.95); color: rgba(0,0,0,.7); background: rgba(0,0,0,.3); box-shadow: 0 0 0 0 rgba(0,0,0,.3); }
+    70% { -webkit-transform: scale(1); transform: scale(1); color: rgba(0,0,0,.6); background: rgba(0,0,0,0); box-shadow: 0 0 0 60px rgba(0,0,0,0); }
+    to { -webkit-transform: scale(.95); transform: scale(.95); color: rgba(0,0,0,.7); background: rgba(0,0,0,.3); box-shadow: 0 0 0 0 rgba(0,0,0,0); }
+}
+@keyframes infinite-pulse {
+    0% { -webkit-transform: scale(.95); transform: scale(.95); color: rgba(0,0,0,.7); background: rgba(0,0,0,.3); box-shadow: 0 0 0 0 rgba(0,0,0,.3); }
+    70% { -webkit-transform: scale(1); transform: scale(1); color: rgba(0,0,0,.6); background: rgba(0,0,0,0); box-shadow: 0 0 0 60px rgba(0,0,0,0); }
+    to { -webkit-transform: scale(.95); transform: scale(.95); color: rgba(0,0,0,.7); background: rgba(0,0,0,.3); box-shadow: 0 0 0 0 rgba(0,0,0,0); }
+}
+.mdl-spinner__layer-1 { border-color: rgba(255, 255, 255, 1); }
+.mdl-spinner__layer-2 { border-color: rgba(128, 128, 128, 1); }
+.mdl-spinner__layer-3 { border-color: rgba(40, 40, 40, 1); }
+.mdl-spinner__layer-4 { border-color: rgba(0, 0, 0, 1); }
+::-webkit-scrollbar-track-piece { background-color: #0000; }
+::-webkit-scrollbar-corner { background-color: #0000; }
+::-webkit-scrollbar-thumb {
+    background: rgba(120, 120, 120, 0.6) !important;
+    border-radius: var(--rounding);
+}
+* { scrollbar-color: rgba(120, 120, 120, 0.6) #0000 !important; }
+.defaultCardBackground1 { background-color: #0a0a0a; }
+.defaultCardBackground2 { background-color: #141414; }
+.defaultCardBackground3 { background-color: #212121; }
+.defaultCardBackground4 { background-color: #333333; }
+.defaultCardBackground5 { background-color: #666666; }
+.innerCardFooter,
+.countIndicator,
+.playedIndicator {
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: none;
+}
+.countIndicator { box-shadow: none; }
+.subtitleappearance-preview {
+    background: linear-gradient(140deg, #444, #111) !important;
+}
+.blurhash-canvas {
+    filter: opacity(60%) saturate(60%);
+}
+.navMenuOption-selected, .selectionCommandsPanel {
+    background: #101010 !important;
+}
+.mainDrawer {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.raised,
+.fab,
+a[data-role="button"] {
+    background: rgba(40, 40, 40, 0.8) !important;
+    transition: all 0.2s !important;
+}
+.raised:hover,
+.fab:hover,
+.navMenuOption:hover,
+.actionSheetMenuItem:hover {
+    background: rgba(80, 80, 80, 0.8) !important;
+}
+.paper-icon-button-light:hover {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+}
+.paper-icon-button-light:hover,
+.raised.homeLibraryButton:hover,
+.button-flat:hover,
+.playstatebutton-icon-played,
+.ratingbutton-icon-withrating,
+.paper-icon-button-light:hover:not(:disabled),
+.emby-tab-button:hover,
+.selectLabelFocused,
+.inputLabelFocused,
+.textareaLabelFocused,
+.buttonActive,
+.button-link {
+    color: rgba(120, 120, 120, 0.6) !important;
+}
+
+
+/* ==========================================================================
+   11. INLINED: title_simple.css — minimal title/detail page layout
+   ========================================================================== */
+.detailSectionContent {
+    max-width: 66em;
+}
+.trackSelections {
+    max-width: 22em;
+}
+.detailLogo {
+    display: none;
+}
+.detailPagePrimaryContainer {
+    background: rgba(0, 0, 0, 0) !important;
+}
+.layout-desktop .detailRibbon {
+    background: rgba(0, 0, 0, 0) !important;
+}
+@media all and (min-width: 32em) {
+    .itemBackdrop { display: none; }
+    .layout-desktop .detailRibbon { margin-top: 13vh; }
+}
+
+
+/* ==========================================================================
+   12. INLINED: overlayprogress.css — full-card progress bar overlay base
+   ========================================================================== */
+#itemDetailPage .itemProgressBar,
+#indexPage .itemProgressBar {
+    height: 2000em;
+    background: #0000;
+}
+.innerCardFooter.fullInnerCardFooter.innerCardFooterClear {
+    background: rgba(0, 0, 0, 0);
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+}
+.itemProgressBarForeground {
+    background-color: rgba(var(--accent), 0.35);
+}
+
+
+/* ==========================================================================
+   13. INLINED: accentlist.css — accent color applied to interactive elements
+   ========================================================================== */
+.emby-button.show-focus:focus {
+    background: rgba(var(--accent), 0.5) !important;
+}
+.paper-icon-button-light.show-focus:focus {
+    color: rgba(var(--accent)) !important;
+}
+button-flat:hover {
+    color: rgba(var(--accent)) !important;
+}
+.raised:hover,
+.fab:hover,
+a[data-role="button"]:hover {
+    background: rgba(var(--accent), 0.5) !important;
+}
+.subtitleappearance-preview {
+    background: linear-gradient(140deg, rgb(var(--accent)), #111) !important;
+}
+.navMenuOption-selected,
+.css-17c09up.Mui-selected {
+    color: rgba(var(--accent));
+}
+.mdl-slider-background-lower {
+    background-color: rgba(var(--accent));
+}
+progress::-moz-progress-bar {
+    background-color: rgba(var(--accent), 0.75);
+}
+progress::-webkit-progress-value {
+    background-color: rgba(var(--accent), 0.75);
+}
+.taskProgressInner,
+.sliderMarker.watched {
+    background: rgba(var(--accent), 0.75) !important;
+}
+#dashboardPage .playbackProgress > div {
+    background-color: rgba(var(--accent), 0.75) !important;
+}
+#dashboardPage .transcodingProgress > div {
+    background-color: rgba(var(--accent), 0.35) !important;
+}
+.mdl-slider-background-lower {
+    background-color: rgb(var(--accent));
+}
+.mdl-slider::-moz-range-thumb { background: rgb(var(--accent)); }
+.mdl-slider::-ms-thumb { background: rgb(var(--accent)); }
+.mdl-slider::-webkit-slider-thumb { background: rgb(var(--accent)); }
+.iconOsdProgressInner { background: rgb(var(--accent)); }
+.paper-icon-button-light:hover,
+.raised.homeLibraryButton:hover,
+.button-flat:hover,
+.playstatebutton-icon-played,
+.ratingbutton-icon-withrating,
+.paper-icon-button-light:hover:not(:disabled),
+.emby-tab-button:hover,
+.selectLabelFocused,
+.inputLabelFocused,
+.textareaLabelFocused,
+.buttonActive,
+.button-link {
+    color: rgba(var(--accent)) !important;
+}
+#itemDetailPage .button-link { color: inherit !important; }
+.navMenuOption:hover,
+.actionSheetMenuItem:hover,
+.css-17c09up:hover {
+    background-color: rgba(var(--accent), 0.5) !important;
+}
+.emby-checkbox:checked + span + .checkboxOutline,
+.emby-textarea:focus,
+.emby-select-withcolor:focus,
+.emby-input:focus,
+.itemSelectionPanel {
+    border: 0.01em solid rgba(var(--accent), 0.5) !important;
+}
+.upNextDialog-countdownText {
+    color: rgba(var(--accent));
+}
+.mdl-spinner__layer-1 {
+    border-color: rgba(var(--accent));
+}
+.mdl-switch__input:checked + .mdl-switch__label + .mdl-switch__trackContainer > .mdl-switch__track {
+    background: rgba(var(--accent), 0.5);
+}
+.mdl-switch__input:checked + .mdl-switch__label + .mdl-switch__trackContainer > .mdl-switch__thumb {
+    background: rgba(var(--accent));
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(var(--accent), 0.8) !important;
+}
+* { scrollbar-color: rgba(var(--accent), 0.8) #0000 !important; }
+.syncPlayIconCircle {
+    color: rgba(var(--accent), 1) !important;
+    text-shadow: none !important;
+}
+.css-4yt2of {
+    border-right: 1px solid rgba(var(--accent), 0.12);
+}
+
+
+/* ==========================================================================
+   14. INLINED: fields_noborder.css — overrides fields_border with no-border style
+   ========================================================================== */
+.infoBanner {
+    background: rgba(var(--selection), 0.15) !important;
+}
+fieldset {
+    border: 1px solid rgba(var(--selection), 0.3);
+}
+.checkboxOutline,
+.emby-input,
+.emby-textarea,
+.emby-select-withcolor {
+    border: none !important;
+    background: rgba(0, 0, 0, 0.5);
+}
+#itemDetailPage .emby-select-withcolor {
+    background: rgba(0, 0, 0, 0.2);
+}
+.emby-checkbox:checked + span + .checkboxOutline,
+.emby-input:focus,
+.emby-textarea:focus,
+.emby-select-withcolor:focus,
+.itemSelectionPanel {
+    border: none !important;
+    background: rgba(var(--selection), 0.25) !important;
+}
+.checkboxIcon {
+    color: rgba(var(--selection), 1);
+}
+progress {
+    border: 0px solid rgba(255, 255, 255, 0.22);
+}
+progress::-webkit-progress-bar {
+    border: 0px solid rgba(255, 255, 255, 0.22);
+}
+.taskProgressOuter {
+    border: 0px solid rgba(255, 255, 255, 0.22);
+}
+
+
+/* ==========================================================================
+   15. INLINED: bottombarprogress.css — bottom progress bar on cards
+   ========================================================================== */
+#itemDetailPage .itemProgressBar,
+#indexPage .itemProgressBar {
+    height: 5px;
+    background: rgba(0, 0, 0, 0.45);
+}
+.itemProgressBarForeground {
+    background-color: rgba(var(--accent), 0.75);
+}
+.transcodingProgress > div {
+    background-color: rgba(var(--accent), 0.35);
+}
+
+
+/* ==========================================================================
+   16. INLINED: backdrop styling from monochromic_preset.css
+   ========================================================================== */
+.backdropImage {
+    filter: blur(60px) saturate(200%) contrast(160%) brightness(25%);
+}
+
+
+/* ==========================================================================
+   ——— CUSTOM OVERRIDES BELOW — applied after all Ultrachromic base styles ———
+   ========================================================================== */
+
+
+/* ==========================================================================
+   17. CSS VARIABLES — white accent, true black background
+   ========================================================================== */
+:root {
+    /* White accent — RGB triplet used as rgba(var(--accent), opacity) */
+    --accent: 255, 255, 255;
+    --indicator: 255, 255, 255;
+    --selection: 255, 255, 255;
+
+    /* Force true black (Ultrachromic dark.css uses near-black #0a0a0a) */
+    --jf-palette-background-default: #000000;
+    --jf-palette-AppBar-defaultBg: #000000;
+
+    /* Replace Jellyfin's native blue accent with white.
+       !important is required — MUI/React injects these at runtime and wins
+       over normal stylesheet declarations without it. */
+    --jf-palette-primary-main: #ffffff !important;
+    --jf-palette-primary-dark: #cccccc !important;
+    --jf-palette-primary-light: #ffffff !important;
+    --jf-palette-primary-hover: rgba(255, 255, 255, 0.15) !important;
+    --jf-palette-primary-contrastText: #000000 !important;
+    --jf-palette-primary-mainChannel: 255 255 255 !important;
+}
+
+
+/* ==========================================================================
+   18. PROGRESS BAR — thin white bar at bottom of card, no grey track
+   ========================================================================== */
+/* bottombarprogress.css sets height:5px but overlayprogress.css (loaded before it
+   in the preset) sets height:2000em (full-card overlay). bottombarprogress wins
+   because it's inlined after overlayprogress. We also reset top:auto explicitly. */
+.innerCardFooter.fullInnerCardFooter.innerCardFooterClear {
+    top: auto !important;
+    height: 4px !important;
+}
+.itemProgressBar {
+    height: 4px !important;
+    background: transparent !important;  /* hide the grey track */
+}
+.itemProgressBarForeground {
+    background-color: rgba(var(--accent), 0.9) !important;
+}
+
+
+/* ==========================================================================
+   19. BACKGROUNDS — pitch black everywhere
+   ========================================================================== */
+html,
+.backgroundContainer,
+.dialog,
+.nowPlayingPlaylist,
+.nowPlayingContextMenu,
+.mainDrawer {
+    background-color: #000000 !important;
+}
+
+
+/* ==========================================================================
+   20. SCROLLBAR — hide in TV layout
+   ========================================================================== */
+.layout-tv ::-webkit-scrollbar {
+    display: none !important;
+}
+.layout-tv * {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
+
+/* ==========================================================================
+   21. CARD BORDERS — BLUE → WHITE  ✅ WORKING
+   ==========================================================================
+   Problem: Jellyfin's _theme.scss sets:
+     .card:focus .cardBox.visualCardBox { border-color: #00a4dc !important; }
+     .card:focus .cardBox:not(.visualCardBox) .cardScalable { border-color: #00a4dc !important; }
+   These use specificity (0,3,0) + !important.
+
+   Solution: Use `html body` element prefix to raise our specificity to (0,4,2),
+   which beats Jellyfin's (0,3,0) even when both sides have !important.
+
+   Step 1: Reserve transparent border space on visualCardBox (movie/TV cards) so the
+   white border doesn't cause layout shift on focus. Plain .cardBox (cast/crew) gets
+   NO added border — adding one was shrinking their small portrait images.
+   ========================================================================== */
+.cardBox.visualCardBox {
+    border: 4px solid transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+    box-sizing: border-box !important;
+}
+
+.cardBox {
+    outline: none !important;
+    box-shadow: none !important;
+    box-sizing: border-box !important;
+}
+
+/* Step 2: Kill blue on all inner card elements. */
+.cardScalable,
+.cardScalable:hover,
+.cardScalable:focus,
+.card:hover .cardScalable,
+.card:focus .cardScalable,
+.cardImageContainer,
+.cardImageContainer:hover,
+.cardImageContainer:focus,
+.cardContent,
+.cardContent:hover,
+.cardContent:focus,
+.cardBox .cardScalable,
+.cardBox .cardPadder,
+.cardBox .cardImageContainer,
+.cardBox .cardContent,
+.cardBox .cardOverlayContainer,
+.card:hover .cardImageContainer,
+.card:focus .cardImageContainer {
+    border: none !important;
+    border-color: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Step 3: White border on the outer cardBox on focus/hover.
+   Specificity (0,4,2) via `html body` prefix beats Jellyfin's (0,3,0). */
+html body .card:focus,
+html body .card.show-focus:focus,
+html body .focuscontainer-x .card:focus,
+html body .focuscontainer-y .card:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+html body .card:focus .cardBox,
+html body .card:focus .cardBox.visualCardBox,
+html body .card.show-focus:focus .cardBox {
+    border: 4px solid #ffffff !important;
+    outline: none !important;
+    box-shadow: none !important;
+    box-sizing: border-box !important;
+}
+
+html body .card:hover .cardBox,
+html body .card:hover .cardBox.visualCardBox {
+    border: 4px solid #ffffff !important;
+    outline: none !important;
+    box-shadow: none !important;
+    box-sizing: border-box !important;
+}
+
+
+/* ==========================================================================
+   21b. CAST / CREW / GUEST STARS — natural portrait cards, white border on focus
+   ==========================================================================
+   smallercast.css has been removed entirely — cast cards now render at their
+   natural Jellyfin portrait size. These rules only handle border cleanup
+   (since somewhere.css still applies border:4px solid transparent to .cardScalable
+   globally) and focus/hover styling.
+   ========================================================================== */
+
+/* Remove transparent borders from cast card elements so they don't eat into dimensions. */
+#castContent .cardBox.visualCardBox,
+#castContent .cardBox,
+#castContent .cardScalable,
+#castContent .cardImageContainer,
+#guestCastContent .cardBox.visualCardBox,
+#guestCastContent .cardBox,
+#guestCastContent .cardScalable,
+#guestCastContent .cardImageContainer {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* White border on focus/hover via inset box-shadow — no layout shift. */
+html body #castContent .card:focus .cardBox,
+html body #castContent .card.show-focus:focus .cardBox,
+html body #castContent .card:hover .cardBox,
+html body #guestCastContent .card:focus .cardBox,
+html body #guestCastContent .card.show-focus:focus .cardBox,
+html body #guestCastContent .card:hover .cardBox {
+    box-shadow: inset 0 0 0 4px #ffffff !important;
+    border: none !important;
+    outline: none !important;
+}
+
+/* Restore text visibility: name and role below the cast portrait. */
+#castContent .cardText,
+#castContent .cardTextCentered,
+#castContent .cardFooterText,
+#guestCastContent .cardText,
+#guestCastContent .cardTextCentered,
+#guestCastContent .cardFooterText {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-size: 0.75em !important;
+    color: #ffffff !important;
+    height: auto !important;
+    overflow: visible !important;
+}
+
+/* Step 4: Clear any remaining inner focus rings (overlay buttons, etc.) */
+.cardBox *:focus,
+.cardBox *:active,
+.card *:focus,
+.card *:active,
+.cardScalable *:focus,
+.cardScalable *:active {
+    outline: none !important;
+    border: none !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+*:focus {
+    outline-color: transparent !important;
+}
+
+
+/* ==========================================================================
+   22. HEADER BUTTONS — transparent hover, white text
+   ========================================================================== */
+.skinHeader .headerButton:hover:not(.headerUserButtonRound),
+.skinHeader .headerButton:focus:not(.headerUserButtonRound),
+html body .headerButton:hover:not(.headerUserButtonRound),
+html body .headerButton:focus:not(.headerUserButtonRound) {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
+
+.navMenuOption:hover,
+.navMenuOption:focus {
+    background-color: transparent !important;
+    color: #ffffff !important;
+}
+
+/* Tab buttons (Home / Favorites tabs): transparent bg, white text. */
+.skinHeader .emby-tab-button,
+.skinHeader .emby-tab-button:hover,
+.skinHeader .emby-tab-button:focus,
+.skinHeader .emby-tab-button-active,
+.skinHeader .emby-tab-button.emby-tab-button-active,
+html body .emby-tab-button:hover,
+html body .emby-tab-button:focus,
+html body .emby-tab-button-active {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+}
+
+
+/* ==========================================================================
+   23. HEADER POSITION — fixed so it never scrolls away
+   ==========================================================================
+   sticky is not reliably honoured in the webOS Chromium webview when the
+   scrolling container is a descendant rather than the viewport itself.
+   position:fixed always stays at the top of the viewport.
+   We compensate by padding the page content area so nothing hides behind it.
+   ========================================================================== */
+.layout-tv .skinHeader {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+    background-color: #000000 !important;
+}
+
+/* Push page content below the fixed header. */
+.layout-tv .pageContainer,
+.layout-tv .mainAnimatedPage,
+.layout-tv .scrollDocument,
+.layout-tv .viewLifetimeContent > .page {
+    padding-top: var(--header-height, 4em) !important;
+}
