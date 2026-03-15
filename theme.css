@@ -1274,3 +1274,51 @@ html body .emby-tab-button-active {
 .layout-tv .viewLifetimeContent > .page {
     padding-top: var(--header-height, 4em) !important;
 }
+
+
+/* ==========================================================================
+   24. LINKS — bold, no underline, no blue colour
+   ==========================================================================
+   Card titles are <button class="button-link">, detail page links are <a>.
+   Both need targeting. Use html body prefix to beat Jellyfin's !important rules.
+   ========================================================================== */
+html body a,
+html body a:visited,
+html body a:hover,
+html body a:focus,
+html body .button-link,
+html body .button-link:hover,
+html body .button-link:focus {
+    color: inherit !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+}
+
+/* Card title text — bold only on hover/focus */
+html body .card:hover .cardText,
+html body .card:hover .cardTextCentered,
+html body .card:hover .cardFooterText,
+html body .card:focus .cardText,
+html body .card:focus .cardTextCentered,
+html body .card:focus .cardFooterText {
+    font-weight: 700 !important;
+}
+
+/* Restore normal weight for visual button elements — icon buttons, tabs, nav */
+html body a.emby-button,
+html body a.headerButton,
+html body a.navMenuOption,
+html body a.emby-tab-button,
+html body a.cardImageContainer,
+html body a.itemAction,
+html body a[data-role="button"],
+html body .cardOverlayButton,
+html body .emby-tab-button,
+html body .headerButton,
+html body .navMenuOption,
+html body .paper-icon-button-light,
+html body .raised,
+html body .fab {
+    text-decoration: none !important;
+    font-weight: inherit !important;
+}
