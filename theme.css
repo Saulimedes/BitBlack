@@ -1191,6 +1191,12 @@ html body #guestCastContent .card:hover .cardBox {
     overflow: visible !important;
 }
 
+/* Hide progress bar on hover so the card overlay is unobstructed. */
+.card:hover .innerCardFooter.fullInnerCardFooter,
+.card:focus .innerCardFooter.fullInnerCardFooter {
+    opacity: 0 !important;
+}
+
 /* Step 4: Clear any remaining inner focus rings (overlay buttons, etc.) */
 .cardBox *:focus,
 .cardBox *:active,
