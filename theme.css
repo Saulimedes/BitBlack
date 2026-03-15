@@ -1197,6 +1197,40 @@ html body #guestCastContent .card:hover .cardBox {
     opacity: 0 !important;
 }
 
+/* ==========================================================================
+   COUNT INDICATORS — black background, white text
+   ==========================================================================
+   indicator_corner.css sets background: rgba(var(--indicator), 0.8).
+   With --indicator: 255,255,255 that renders white. Override to black. */
+.countIndicator {
+    background: #000000 !important;
+    color: #ffffff !important;
+}
+
+/* ==========================================================================
+   CARD OVERLAY BUTTONS — black background on hover overlay
+   ==========================================================================
+   base.css sets cardOverlayFab-primary and cardOverlayButtonIcon to
+   background-color: transparent. Make them black so the play/check/more
+   icons have a visible background when the hover overlay appears. */
+.cardOverlayFab-primary,
+.cardOverlayFab-primary *,
+.cardOverlayButton,
+.cardOverlayButton *,
+.cardOverlayButton-hover,
+.cardOverlayButton-centered,
+.btnCardOptions,
+.btnCardOptions *,
+.cardOverlayButtonIcon,
+.cardOverlayContainer .paper-icon-button-light,
+.cardOverlayContainer button {
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
 /* Step 4: Clear any remaining inner focus rings (overlay buttons, etc.) */
 .cardBox *:focus,
 .cardBox *:active,
