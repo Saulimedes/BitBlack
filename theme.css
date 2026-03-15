@@ -1119,7 +1119,15 @@ html body .card:hover .cardBox.visualCardBox {
    globally) and focus/hover styling.
    ========================================================================== */
 
-/* Remove transparent borders from cast card elements so they don't eat into dimensions. */
+/* Remove transparent borders and clip overflow so the absolute-positioned image
+   stays inside the card. Also disable the scale(1.1) focus animation from base.css
+   which causes the focused card to expand and bleed into neighbouring cards. */
+#castContent .card.show-animation:focus > .cardBox,
+#guestCastContent .card.show-animation:focus > .cardBox {
+    transform: none !important;
+    -webkit-transform: none !important;
+}
+
 #castContent .cardBox.visualCardBox,
 #castContent .cardBox,
 #castContent .cardScalable,
@@ -1132,16 +1140,32 @@ html body .card:hover .cardBox.visualCardBox {
     box-shadow: none !important;
 }
 
-/* White border on focus/hover via inset box-shadow — no layout shift. */
+#castContent .cardBox,
+#castContent .cardScalable,
+#guestCastContent .cardBox,
+#guestCastContent .cardScalable {
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+/* White border on focus/hover — same approach as movie cards: pre-allocated
+   transparent border on cardBox (no layout shift), turns white on focus.
+   Text below the image is intentionally un-bordered, same as movie title text. */
+#castContent .cardBox,
+#guestCastContent .cardBox {
+    border: 4px solid transparent !important;
+    box-sizing: border-box !important;
+}
+
 html body #castContent .card:focus .cardBox,
 html body #castContent .card.show-focus:focus .cardBox,
 html body #castContent .card:hover .cardBox,
 html body #guestCastContent .card:focus .cardBox,
 html body #guestCastContent .card.show-focus:focus .cardBox,
 html body #guestCastContent .card:hover .cardBox {
-    box-shadow: inset 0 0 0 4px #ffffff !important;
-    border: none !important;
+    border: 4px solid #ffffff !important;
     outline: none !important;
+    box-shadow: none !important;
 }
 
 /* Restore text visibility: name and role below the cast portrait. */
