@@ -17,12 +17,13 @@
 
 
 /* ==========================================================================
-   1. INLINED: jf_font.css — Plus Jakarta Sans font
+   1. INLINED: jf_font.css — Pixel art font
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
-body, h1, h2, h3, h4 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+body, h1, h2, h3, h4, p, span:not(.material-icons):not(.md-icon),
+div, a, button, input, label, li, td, th, select, textarea {
+    font-family: 'VT323', monospace !important;
 }
 .emby-textarea {
     font-family: monospace;
@@ -1385,4 +1386,9 @@ html body .raised,
 html body .fab {
     text-decoration: none !important;
     font-weight: inherit !important;
+}
+
+
+.currentTimeText {
+    display: none !important;
 }
