@@ -1401,10 +1401,14 @@ html body .fab {
     background-color: rgba(255, 255, 255, 0.15) !important;
 }
 
-/* Hide Jellyfin logo in header */
+/* Custom logo in header */
 .pageTitleWithLogo,
 .pageTitleWithDefaultLogo {
-    display: none !important;
+    display: block !important;
+    background-image: url('https://raw.githubusercontent.com/Saulimedes/BitBlack/main/assets/logo.png') !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    background-position: left center !important;
 }
 
 /* Increase all font sizes by 30% on TV layout */
