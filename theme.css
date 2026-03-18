@@ -1,19 +1,7 @@
 /* ==========================================================================
-   Jellyfin — Ultrachromic Monochromic, pitch black + white accent
+   BitBlack — pitch black + white accent
    Target: LG webOS TV app (layout-tv)
-   All external CSS is inlined. No @import dependencies.
    ========================================================================== */
-
-/* STATUS SUMMARY (as of last session):
-   ✅ DONE  — Blue card border replaced with white on focus/hover (movie/TV cards)
-   ✅ DONE  — Inner blue border on card images killed (cardScalable, cardImageContainer)
-   ✅ DONE  — Tab buttons (Home/Favorites): transparent bg, white text on hover/active
-   ✅ DONE  — Header icon buttons: transparent hover, white text
-   ✅ DONE  — Header fixed at top (position:fixed + content padding); no longer scrolls away
-   ✅ DONE  — Cast/crew person cards: natural portrait size, white border on focus, text visible
-   ✅ DONE  — All external CSS inlined; smallercast.css removed entirely
-   ⚠ TODO  — Preferences menu width regression (was caused by cardBox override, now removed)
-*/
 
 
 /* ==========================================================================

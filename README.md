@@ -6,5 +6,5 @@ My personal Jellyfin theme. Pitch black, pixel font, white accents — built for
 
 ## Setup
 
-1. In Jellyfin, go to **Dashboard → General → Custom CSS**
+1. In Jellyfin, go to **Dashboard → Branding → Custom CSS**
 2. Paste the contents of [`theme.css`](theme.css)
