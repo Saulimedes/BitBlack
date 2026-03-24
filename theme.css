@@ -1403,3 +1403,26 @@ html body .fab {
 html.layout-tv body {
     font-size: 125% !important;
 }
+
+
+/* ==========================================================================
+   25. PIXEL ART ICONS
+   Custom font: Material Icons glyphs replaced with pixelarticons (MIT) v2.0.2
+   Ligature tables kept intact — works with all Jellyfin icon rendering.
+   Font hosted at: https://cdn.jsdelivr.net/gh/Saulimedes/BitBlack/pixel-material-icons.woff2
+   ========================================================================== */
+@font-face {
+    font-family: 'Material Icons';
+    src: url('https://cdn.jsdelivr.net/gh/Saulimedes/BitBlack/pixel-material-icons.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+.material-icons,
+.md-icon {
+    -webkit-font-smoothing: none !important;
+    font-smooth: never !important;
+}
+
+
