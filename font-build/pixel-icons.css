@@ -1,0 +1,758 @@
+/* ==========================================================================
+   PIXEL ART ICON FONT
+   Replaces all Material Icons with pixelarticons (MIT) v2.0.2
+   https://pixelarticons.com
+   Unmapped icons fall back to the original Material Icons font.
+   ========================================================================== */
+@font-face {
+    font-family: 'PixelArt';
+    src: url('https://cdn.jsdelivr.net/npm/pixelarticons@2.0.2/fonts/pixelart-icons-font.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+/* Only hide ligature text for icons we have a pixel art replacement for */
+.material-icons.access_time,
+.md-icon.access_time,
+.material-icons.account_circle,
+.md-icon.account_circle,
+.material-icons.add,
+.md-icon.add,
+.material-icons.airplay,
+.md-icon.airplay,
+.material-icons.album,
+.md-icon.album,
+.material-icons.analytics,
+.md-icon.analytics,
+.material-icons.app_settings_alt,
+.md-icon.app_settings_alt,
+.material-icons.arrow_back,
+.md-icon.arrow_back,
+.material-icons.arrow_drop_down,
+.md-icon.arrow_drop_down,
+.material-icons.arrow_forward,
+.md-icon.arrow_forward,
+.material-icons.arrow_forward_ios,
+.md-icon.arrow_forward_ios,
+.material-icons.article,
+.md-icon.article,
+.material-icons.audiotrack,
+.md-icon.audiotrack,
+.material-icons.autorenew,
+.md-icon.autorenew,
+.material-icons.backup,
+.md-icon.backup,
+.material-icons.book,
+.md-icon.book,
+.material-icons.call_merge,
+.md-icon.call_merge,
+.material-icons.call_split,
+.md-icon.call_split,
+.material-icons.cancel,
+.md-icon.cancel,
+.material-icons.cast,
+.md-icon.cast,
+.material-icons.cast_connected,
+.md-icon.cast_connected,
+.material-icons.check,
+.md-icon.check,
+.material-icons.check_box,
+.md-icon.check_box,
+.material-icons.check_box_outline_blank,
+.md-icon.check_box_outline_blank,
+.material-icons.chevron_left,
+.md-icon.chevron_left,
+.material-icons.chevron_right,
+.md-icon.chevron_right,
+.material-icons.clear,
+.md-icon.clear,
+.material-icons.clear_all,
+.md-icon.clear_all,
+.material-icons.close,
+.md-icon.close,
+.material-icons.closed_caption,
+.md-icon.closed_caption,
+.material-icons.cloud_download,
+.md-icon.cloud_download,
+.material-icons.comment,
+.md-icon.comment,
+.material-icons.computer,
+.md-icon.computer,
+.material-icons.content_copy,
+.md-icon.content_copy,
+.material-icons.dashboard,
+.md-icon.dashboard,
+.material-icons.delete,
+.md-icon.delete,
+.material-icons.devices,
+.md-icon.devices,
+.material-icons.download,
+.md-icon.download,
+.material-icons.dvr,
+.md-icon.dvr,
+.material-icons.edit,
+.md-icon.edit,
+.material-icons.exit_to_app,
+.md-icon.exit_to_app,
+.material-icons.expand_less,
+.md-icon.expand_less,
+.material-icons.expand_more,
+.md-icon.expand_more,
+.material-icons.explore,
+.md-icon.explore,
+.material-icons.extension,
+.md-icon.extension,
+.material-icons.fast_forward,
+.md-icon.fast_forward,
+.material-icons.fast_rewind,
+.md-icon.fast_rewind,
+.material-icons.favorite,
+.md-icon.favorite,
+.material-icons.fiber_manual_record,
+.md-icon.fiber_manual_record,
+.material-icons.fiber_smart_record,
+.md-icon.fiber_smart_record,
+.material-icons.file_download,
+.md-icon.file_download,
+.material-icons.filter_alt,
+.md-icon.filter_alt,
+.material-icons.folder,
+.md-icon.folder,
+.material-icons.fullscreen,
+.md-icon.fullscreen,
+.material-icons.get_app,
+.md-icon.get_app,
+.material-icons.group_add,
+.md-icon.group_add,
+.material-icons.groups,
+.md-icon.groups,
+.material-icons.help_outline,
+.md-icon.help_outline,
+.material-icons.home,
+.md-icon.home,
+.material-icons.image,
+.md-icon.image,
+.material-icons.info,
+.md-icon.info,
+.material-icons.info_outline,
+.md-icon.info_outline,
+.material-icons.keyboard_arrow_down,
+.md-icon.keyboard_arrow_down,
+.material-icons.keyboard_arrow_left,
+.md-icon.keyboard_arrow_left,
+.material-icons.keyboard_arrow_up,
+.md-icon.keyboard_arrow_up,
+.material-icons.lan,
+.md-icon.lan,
+.material-icons.library_add,
+.md-icon.library_add,
+.material-icons.library_add_check,
+.md-icon.library_add_check,
+.material-icons.list,
+.md-icon.list,
+.material-icons.live_tv,
+.md-icon.live_tv,
+.material-icons.logout,
+.md-icon.logout,
+.material-icons.lyrics,
+.md-icon.lyrics,
+.material-icons.meeting_room,
+.md-icon.meeting_room,
+.material-icons.memory,
+.md-icon.memory,
+.material-icons.menu,
+.md-icon.menu,
+.material-icons.mode_edit,
+.md-icon.mode_edit,
+.material-icons.more_vert,
+.md-icon.more_vert,
+.material-icons.movie,
+.md-icon.movie,
+.material-icons.music_note,
+.md-icon.music_note,
+.material-icons.music_video,
+.md-icon.music_video,
+.material-icons.open_in_new,
+.md-icon.open_in_new,
+.material-icons.palette,
+.md-icon.palette,
+.material-icons.pause,
+.md-icon.pause,
+.material-icons.pause_circle_filled,
+.md-icon.pause_circle_filled,
+.material-icons.people,
+.md-icon.people,
+.material-icons.person,
+.md-icon.person,
+.material-icons.person_add,
+.md-icon.person_add,
+.material-icons.person_off,
+.md-icon.person_off,
+.material-icons.person_remove,
+.md-icon.person_remove,
+.material-icons.phonelink_lock,
+.md-icon.phonelink_lock,
+.material-icons.photo,
+.md-icon.photo,
+.material-icons.photo_album,
+.md-icon.photo_album,
+.material-icons.picture_in_picture_alt,
+.md-icon.picture_in_picture_alt,
+.material-icons.play,
+.md-icon.play,
+.material-icons.play_arrow,
+.md-icon.play_arrow,
+.material-icons.play_circle,
+.md-icon.play_circle,
+.material-icons.play_circle_filled,
+.md-icon.play_circle_filled,
+.material-icons.playlist_add,
+.md-icon.playlist_add,
+.material-icons.playlist_remove,
+.md-icon.playlist_remove,
+.material-icons.preview,
+.md-icon.preview,
+.material-icons.queue,
+.md-icon.queue,
+.material-icons.quiz,
+.md-icon.quiz,
+.material-icons.redo,
+.md-icon.redo,
+.material-icons.refresh,
+.md-icon.refresh,
+.material-icons.remove_circle,
+.md-icon.remove_circle,
+.material-icons.remove_circle_outline,
+.md-icon.remove_circle_outline,
+.material-icons.repeat,
+.md-icon.repeat,
+.material-icons.repeat_one,
+.md-icon.repeat_one,
+.material-icons.replay,
+.md-icon.replay,
+.material-icons.restore,
+.md-icon.restore,
+.material-icons.schedule,
+.md-icon.schedule,
+.material-icons.search,
+.md-icon.search,
+.material-icons.select_all,
+.md-icon.select_all,
+.material-icons.settings,
+.md-icon.settings,
+.material-icons.settings_remote,
+.md-icon.settings_remote,
+.material-icons.share,
+.md-icon.share,
+.material-icons.shuffle,
+.md-icon.shuffle,
+.material-icons.skip_next,
+.md-icon.skip_next,
+.material-icons.skip_previous,
+.md-icon.skip_previous,
+.material-icons.slideshow,
+.md-icon.slideshow,
+.material-icons.smartphone,
+.md-icon.smartphone,
+.material-icons.sort_by_alpha,
+.md-icon.sort_by_alpha,
+.material-icons.star,
+.md-icon.star,
+.material-icons.stop,
+.md-icon.stop,
+.material-icons.stop_circle,
+.md-icon.stop_circle,
+.material-icons.storage,
+.md-icon.storage,
+.material-icons.subtitles,
+.md-icon.subtitles,
+.material-icons.tablet,
+.md-icon.tablet,
+.material-icons.theaters,
+.md-icon.theaters,
+.material-icons.tune,
+.md-icon.tune,
+.material-icons.tv,
+.md-icon.tv,
+.material-icons.undo,
+.md-icon.undo,
+.material-icons.usb,
+.md-icon.usb,
+.material-icons.vertical_align_bottom,
+.md-icon.vertical_align_bottom,
+.material-icons.vertical_align_top,
+.md-icon.vertical_align_top,
+.material-icons.video_library,
+.md-icon.video_library,
+.material-icons.video_settings,
+.md-icon.video_settings,
+.material-icons.videocam,
+.md-icon.videocam,
+.material-icons.view_comfy,
+.md-icon.view_comfy,
+.material-icons.visibility,
+.md-icon.visibility,
+.material-icons.visibility_off,
+.md-icon.visibility_off,
+.material-icons.volume_up,
+.md-icon.volume_up,
+.material-icons.vpn_key,
+.md-icon.vpn_key,
+.material-icons.warning,
+.md-icon.warning {
+    font-family: 'PixelArt' !important;
+    color: transparent !important;
+    position: relative !important;
+    -webkit-font-smoothing: none !important;
+    font-smooth: never !important;
+    filter: none !important;
+}
+
+/* Show pixel art glyph via ::before */
+.material-icons.access_time::before,
+.md-icon.access_time::before,
+.material-icons.account_circle::before,
+.md-icon.account_circle::before,
+.material-icons.add::before,
+.md-icon.add::before,
+.material-icons.airplay::before,
+.md-icon.airplay::before,
+.material-icons.album::before,
+.md-icon.album::before,
+.material-icons.analytics::before,
+.md-icon.analytics::before,
+.material-icons.app_settings_alt::before,
+.md-icon.app_settings_alt::before,
+.material-icons.arrow_back::before,
+.md-icon.arrow_back::before,
+.material-icons.arrow_drop_down::before,
+.md-icon.arrow_drop_down::before,
+.material-icons.arrow_forward::before,
+.md-icon.arrow_forward::before,
+.material-icons.arrow_forward_ios::before,
+.md-icon.arrow_forward_ios::before,
+.material-icons.article::before,
+.md-icon.article::before,
+.material-icons.audiotrack::before,
+.md-icon.audiotrack::before,
+.material-icons.autorenew::before,
+.md-icon.autorenew::before,
+.material-icons.backup::before,
+.md-icon.backup::before,
+.material-icons.book::before,
+.md-icon.book::before,
+.material-icons.call_merge::before,
+.md-icon.call_merge::before,
+.material-icons.call_split::before,
+.md-icon.call_split::before,
+.material-icons.cancel::before,
+.md-icon.cancel::before,
+.material-icons.cast::before,
+.md-icon.cast::before,
+.material-icons.cast_connected::before,
+.md-icon.cast_connected::before,
+.material-icons.check::before,
+.md-icon.check::before,
+.material-icons.check_box::before,
+.md-icon.check_box::before,
+.material-icons.check_box_outline_blank::before,
+.md-icon.check_box_outline_blank::before,
+.material-icons.chevron_left::before,
+.md-icon.chevron_left::before,
+.material-icons.chevron_right::before,
+.md-icon.chevron_right::before,
+.material-icons.clear::before,
+.md-icon.clear::before,
+.material-icons.clear_all::before,
+.md-icon.clear_all::before,
+.material-icons.close::before,
+.md-icon.close::before,
+.material-icons.closed_caption::before,
+.md-icon.closed_caption::before,
+.material-icons.cloud_download::before,
+.md-icon.cloud_download::before,
+.material-icons.comment::before,
+.md-icon.comment::before,
+.material-icons.computer::before,
+.md-icon.computer::before,
+.material-icons.content_copy::before,
+.md-icon.content_copy::before,
+.material-icons.dashboard::before,
+.md-icon.dashboard::before,
+.material-icons.delete::before,
+.md-icon.delete::before,
+.material-icons.devices::before,
+.md-icon.devices::before,
+.material-icons.download::before,
+.md-icon.download::before,
+.material-icons.dvr::before,
+.md-icon.dvr::before,
+.material-icons.edit::before,
+.md-icon.edit::before,
+.material-icons.exit_to_app::before,
+.md-icon.exit_to_app::before,
+.material-icons.expand_less::before,
+.md-icon.expand_less::before,
+.material-icons.expand_more::before,
+.md-icon.expand_more::before,
+.material-icons.explore::before,
+.md-icon.explore::before,
+.material-icons.extension::before,
+.md-icon.extension::before,
+.material-icons.fast_forward::before,
+.md-icon.fast_forward::before,
+.material-icons.fast_rewind::before,
+.md-icon.fast_rewind::before,
+.material-icons.favorite::before,
+.md-icon.favorite::before,
+.material-icons.fiber_manual_record::before,
+.md-icon.fiber_manual_record::before,
+.material-icons.fiber_smart_record::before,
+.md-icon.fiber_smart_record::before,
+.material-icons.file_download::before,
+.md-icon.file_download::before,
+.material-icons.filter_alt::before,
+.md-icon.filter_alt::before,
+.material-icons.folder::before,
+.md-icon.folder::before,
+.material-icons.fullscreen::before,
+.md-icon.fullscreen::before,
+.material-icons.get_app::before,
+.md-icon.get_app::before,
+.material-icons.group_add::before,
+.md-icon.group_add::before,
+.material-icons.groups::before,
+.md-icon.groups::before,
+.material-icons.help_outline::before,
+.md-icon.help_outline::before,
+.material-icons.home::before,
+.md-icon.home::before,
+.material-icons.image::before,
+.md-icon.image::before,
+.material-icons.info::before,
+.md-icon.info::before,
+.material-icons.info_outline::before,
+.md-icon.info_outline::before,
+.material-icons.keyboard_arrow_down::before,
+.md-icon.keyboard_arrow_down::before,
+.material-icons.keyboard_arrow_left::before,
+.md-icon.keyboard_arrow_left::before,
+.material-icons.keyboard_arrow_up::before,
+.md-icon.keyboard_arrow_up::before,
+.material-icons.lan::before,
+.md-icon.lan::before,
+.material-icons.library_add::before,
+.md-icon.library_add::before,
+.material-icons.library_add_check::before,
+.md-icon.library_add_check::before,
+.material-icons.list::before,
+.md-icon.list::before,
+.material-icons.live_tv::before,
+.md-icon.live_tv::before,
+.material-icons.logout::before,
+.md-icon.logout::before,
+.material-icons.lyrics::before,
+.md-icon.lyrics::before,
+.material-icons.meeting_room::before,
+.md-icon.meeting_room::before,
+.material-icons.memory::before,
+.md-icon.memory::before,
+.material-icons.menu::before,
+.md-icon.menu::before,
+.material-icons.mode_edit::before,
+.md-icon.mode_edit::before,
+.material-icons.more_vert::before,
+.md-icon.more_vert::before,
+.material-icons.movie::before,
+.md-icon.movie::before,
+.material-icons.music_note::before,
+.md-icon.music_note::before,
+.material-icons.music_video::before,
+.md-icon.music_video::before,
+.material-icons.open_in_new::before,
+.md-icon.open_in_new::before,
+.material-icons.palette::before,
+.md-icon.palette::before,
+.material-icons.pause::before,
+.md-icon.pause::before,
+.material-icons.pause_circle_filled::before,
+.md-icon.pause_circle_filled::before,
+.material-icons.people::before,
+.md-icon.people::before,
+.material-icons.person::before,
+.md-icon.person::before,
+.material-icons.person_add::before,
+.md-icon.person_add::before,
+.material-icons.person_off::before,
+.md-icon.person_off::before,
+.material-icons.person_remove::before,
+.md-icon.person_remove::before,
+.material-icons.phonelink_lock::before,
+.md-icon.phonelink_lock::before,
+.material-icons.photo::before,
+.md-icon.photo::before,
+.material-icons.photo_album::before,
+.md-icon.photo_album::before,
+.material-icons.picture_in_picture_alt::before,
+.md-icon.picture_in_picture_alt::before,
+.material-icons.play::before,
+.md-icon.play::before,
+.material-icons.play_arrow::before,
+.md-icon.play_arrow::before,
+.material-icons.play_circle::before,
+.md-icon.play_circle::before,
+.material-icons.play_circle_filled::before,
+.md-icon.play_circle_filled::before,
+.material-icons.playlist_add::before,
+.md-icon.playlist_add::before,
+.material-icons.playlist_remove::before,
+.md-icon.playlist_remove::before,
+.material-icons.preview::before,
+.md-icon.preview::before,
+.material-icons.queue::before,
+.md-icon.queue::before,
+.material-icons.quiz::before,
+.md-icon.quiz::before,
+.material-icons.redo::before,
+.md-icon.redo::before,
+.material-icons.refresh::before,
+.md-icon.refresh::before,
+.material-icons.remove_circle::before,
+.md-icon.remove_circle::before,
+.material-icons.remove_circle_outline::before,
+.md-icon.remove_circle_outline::before,
+.material-icons.repeat::before,
+.md-icon.repeat::before,
+.material-icons.repeat_one::before,
+.md-icon.repeat_one::before,
+.material-icons.replay::before,
+.md-icon.replay::before,
+.material-icons.restore::before,
+.md-icon.restore::before,
+.material-icons.schedule::before,
+.md-icon.schedule::before,
+.material-icons.search::before,
+.md-icon.search::before,
+.material-icons.select_all::before,
+.md-icon.select_all::before,
+.material-icons.settings::before,
+.md-icon.settings::before,
+.material-icons.settings_remote::before,
+.md-icon.settings_remote::before,
+.material-icons.share::before,
+.md-icon.share::before,
+.material-icons.shuffle::before,
+.md-icon.shuffle::before,
+.material-icons.skip_next::before,
+.md-icon.skip_next::before,
+.material-icons.skip_previous::before,
+.md-icon.skip_previous::before,
+.material-icons.slideshow::before,
+.md-icon.slideshow::before,
+.material-icons.smartphone::before,
+.md-icon.smartphone::before,
+.material-icons.sort_by_alpha::before,
+.md-icon.sort_by_alpha::before,
+.material-icons.star::before,
+.md-icon.star::before,
+.material-icons.stop::before,
+.md-icon.stop::before,
+.material-icons.stop_circle::before,
+.md-icon.stop_circle::before,
+.material-icons.storage::before,
+.md-icon.storage::before,
+.material-icons.subtitles::before,
+.md-icon.subtitles::before,
+.material-icons.tablet::before,
+.md-icon.tablet::before,
+.material-icons.theaters::before,
+.md-icon.theaters::before,
+.material-icons.tune::before,
+.md-icon.tune::before,
+.material-icons.tv::before,
+.md-icon.tv::before,
+.material-icons.undo::before,
+.md-icon.undo::before,
+.material-icons.usb::before,
+.md-icon.usb::before,
+.material-icons.vertical_align_bottom::before,
+.md-icon.vertical_align_bottom::before,
+.material-icons.vertical_align_top::before,
+.md-icon.vertical_align_top::before,
+.material-icons.video_library::before,
+.md-icon.video_library::before,
+.material-icons.video_settings::before,
+.md-icon.video_settings::before,
+.material-icons.videocam::before,
+.md-icon.videocam::before,
+.material-icons.view_comfy::before,
+.md-icon.view_comfy::before,
+.material-icons.visibility::before,
+.md-icon.visibility::before,
+.material-icons.visibility_off::before,
+.md-icon.visibility_off::before,
+.material-icons.volume_up::before,
+.md-icon.volume_up::before,
+.material-icons.vpn_key::before,
+.md-icon.vpn_key::before,
+.material-icons.warning::before,
+.md-icon.warning::before {
+    font-family: 'PixelArt' !important;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: inherit;
+    line-height: 1;
+    display: block;
+    -webkit-font-smoothing: none !important;
+    font-smooth: never !important;
+}
+
+/* Per-icon content */
+.material-icons.access_time::before, .md-icon.access_time::before { content: "\ea8c"; }
+.material-icons.account_circle::before, .md-icon.account_circle::before { content: "\ea2b"; }
+.material-icons.add::before, .md-icon.add::before { content: "\eb7d"; }
+.material-icons.airplay::before, .md-icon.airplay::before { content: "\ea71"; }
+.material-icons.album::before, .md-icon.album::before { content: "\eb66"; }
+.material-icons.analytics::before, .md-icon.analytics::before { content: "\ea11"; }
+.material-icons.app_settings_alt::before, .md-icon.app_settings_alt::before { content: "\eba3"; }
+.material-icons.arrow_back::before, .md-icon.arrow_back::before { content: "\ea1d"; }
+.material-icons.arrow_drop_down::before, .md-icon.arrow_drop_down::before { content: "\ea84"; }
+.material-icons.arrow_forward::before, .md-icon.arrow_forward::before { content: "\ea1f"; }
+.material-icons.arrow_forward_ios::before, .md-icon.arrow_forward_ios::before { content: "\ea86"; }
+.material-icons.article::before, .md-icon.article::before { content: "\ea26"; }
+.material-icons.audiotrack::before, .md-icon.audiotrack::before { content: "\eb66"; }
+.material-icons.autorenew::before, .md-icon.autorenew::before { content: "\eb88"; }
+.material-icons.backup::before, .md-icon.backup::before { content: "\ebcc"; }
+.material-icons.book::before, .md-icon.book::before { content: "\ea35"; }
+.material-icons.call_merge::before, .md-icon.call_merge::before { content: "\eaf9"; }
+.material-icons.call_split::before, .md-icon.call_split::before { content: "\eaf7"; }
+.material-icons.cancel::before, .md-icon.cancel::before { content: "\ea8e"; }
+.material-icons.cast::before, .md-icon.cast::before { content: "\ea71"; }
+.material-icons.cast_connected::before, .md-icon.cast_connected::before { content: "\eb5a"; }
+.material-icons.check::before, .md-icon.check::before { content: "\ea7f"; }
+.material-icons.check_box::before, .md-icon.check_box::before { content: "\ea80"; }
+.material-icons.check_box_outline_blank::before, .md-icon.check_box_outline_blank::before { content: "\ea81"; }
+.material-icons.chevron_left::before, .md-icon.chevron_left::before { content: "\ea85"; }
+.material-icons.chevron_right::before, .md-icon.chevron_right::before { content: "\ea86"; }
+.material-icons.clear::before, .md-icon.clear::before { content: "\ea8e"; }
+.material-icons.clear_all::before, .md-icon.clear_all::before { content: "\ebc3"; }
+.material-icons.close::before, .md-icon.close::before { content: "\ea8e"; }
+.material-icons.closed_caption::before, .md-icon.closed_caption::before { content: "\ebaf"; }
+.material-icons.cloud_download::before, .md-icon.cloud_download::before { content: "\ea90"; }
+.material-icons.comment::before, .md-icon.comment::before { content: "\eb55"; }
+.material-icons.computer::before, .md-icon.computer::before { content: "\eabd"; }
+.material-icons.content_copy::before, .md-icon.content_copy::before { content: "\eaa2"; }
+.material-icons.dashboard::before, .md-icon.dashboard::before { content: "\eab4"; }
+.material-icons.delete::before, .md-icon.delete::before { content: "\eabb"; }
+.material-icons.devices::before, .md-icon.devices::before { content: "\eac4"; }
+.material-icons.download::before, .md-icon.download::before { content: "\eac8"; }
+.material-icons.dvr::before, .md-icon.dvr::before { content: "\ebd3"; }
+.material-icons.edit::before, .md-icon.edit::before { content: "\ead2"; }
+.material-icons.exit_to_app::before, .md-icon.exit_to_app::before { content: "\eb3b"; }
+.material-icons.expand_less::before, .md-icon.expand_less::before { content: "\ea87"; }
+.material-icons.expand_more::before, .md-icon.expand_more::before { content: "\ea84"; }
+.material-icons.explore::before, .md-icon.explore::before { content: "\eafd"; }
+.material-icons.extension::before, .md-icon.extension::before { content: "\eafe"; }
+.material-icons.fast_forward::before, .md-icon.fast_forward::before { content: "\eba9"; }
+.material-icons.fast_rewind::before, .md-icon.fast_rewind::before { content: "\ebab"; }
+.material-icons.favorite::before, .md-icon.favorite::before { content: "\eb03"; }
+.material-icons.fiber_manual_record::before, .md-icon.fiber_manual_record::before { content: "\ea8a"; }
+.material-icons.fiber_smart_record::before, .md-icon.fiber_smart_record::before { content: "\ea8a"; }
+.material-icons.file_download::before, .md-icon.file_download::before { content: "\eac8"; }
+.material-icons.filter_alt::before, .md-icon.filter_alt::before { content: "\eba4"; }
+.material-icons.folder::before, .md-icon.folder::before { content: "\eaec"; }
+.material-icons.fullscreen::before, .md-icon.fullscreen::before { content: "\ead4"; }
+.material-icons.get_app::before, .md-icon.get_app::before { content: "\eac8"; }
+.material-icons.group_add::before, .md-icon.group_add::before { content: "\ebce"; }
+.material-icons.groups::before, .md-icon.groups::before { content: "\ebd1"; }
+.material-icons.help_outline::before, .md-icon.help_outline::before { content: "\eb1b"; }
+.material-icons.home::before, .md-icon.home::before { content: "\eb05"; }
+.material-icons.image::before, .md-icon.image::before { content: "\eb17"; }
+.material-icons.info::before, .md-icon.info::before { content: "\eb1b"; }
+.material-icons.info_outline::before, .md-icon.info_outline::before { content: "\eb1b"; }
+.material-icons.keyboard_arrow_down::before, .md-icon.keyboard_arrow_down::before { content: "\ea84"; }
+.material-icons.keyboard_arrow_left::before, .md-icon.keyboard_arrow_left::before { content: "\ea85"; }
+.material-icons.keyboard_arrow_up::before, .md-icon.keyboard_arrow_up::before { content: "\ea87"; }
+.material-icons.lan::before, .md-icon.lan::before { content: "\eb58"; }
+.material-icons.library_add::before, .md-icon.library_add::before { content: "\eaea"; }
+.material-icons.library_add_check::before, .md-icon.library_add_check::before { content: "\ea7f"; }
+.material-icons.list::before, .md-icon.list::before { content: "\eb36"; }
+.material-icons.live_tv::before, .md-icon.live_tv::before { content: "\eac1"; }
+.material-icons.logout::before, .md-icon.logout::before { content: "\eb3b"; }
+.material-icons.lyrics::before, .md-icon.lyrics::before { content: "\eb6b"; }
+.material-icons.meeting_room::before, .md-icon.meeting_room::before { content: "\eb72"; }
+.material-icons.memory::before, .md-icon.memory::before { content: "\eb9c"; }
+.material-icons.menu::before, .md-icon.menu::before { content: "\eb48"; }
+.material-icons.mode_edit::before, .md-icon.mode_edit::before { content: "\ead2"; }
+.material-icons.more_vert::before, .md-icon.more_vert::before { content: "\eb62"; }
+.material-icons.movie::before, .md-icon.movie::before { content: "\eb65"; }
+.material-icons.music_note::before, .md-icon.music_note::before { content: "\eb66"; }
+.material-icons.music_video::before, .md-icon.music_video::before { content: "\ebd3"; }
+.material-icons.open_in_new::before, .md-icon.open_in_new::before { content: "\eb34"; }
+.material-icons.palette::before, .md-icon.palette::before { content: "\eb73"; }
+.material-icons.pause::before, .md-icon.pause::before { content: "\eb75"; }
+.material-icons.pause_circle_filled::before, .md-icon.pause_circle_filled::before { content: "\eb75"; }
+.material-icons.people::before, .md-icon.people::before { content: "\ebd1"; }
+.material-icons.person::before, .md-icon.person::before { content: "\ebd0"; }
+.material-icons.person_add::before, .md-icon.person_add::before { content: "\ebce"; }
+.material-icons.person_off::before, .md-icon.person_off::before { content: "\ebcf"; }
+.material-icons.person_remove::before, .md-icon.person_remove::before { content: "\ebcd"; }
+.material-icons.phonelink_lock::before, .md-icon.phonelink_lock::before { content: "\eb39"; }
+.material-icons.photo::before, .md-icon.photo::before { content: "\eb17"; }
+.material-icons.photo_album::before, .md-icon.photo_album::before { content: "\eb13"; }
+.material-icons.picture_in_picture_alt::before, .md-icon.picture_in_picture_alt::before { content: "\eb77"; }
+.material-icons.play::before, .md-icon.play::before { content: "\eb7b"; }
+.material-icons.play_arrow::before, .md-icon.play_arrow::before { content: "\eb7b"; }
+.material-icons.play_circle::before, .md-icon.play_circle::before { content: "\eb7b"; }
+.material-icons.play_circle_filled::before, .md-icon.play_circle_filled::before { content: "\eb7b"; }
+.material-icons.playlist_add::before, .md-icon.playlist_add::before { content: "\eb7c"; }
+.material-icons.playlist_remove::before, .md-icon.playlist_remove::before { content: "\eb56"; }
+.material-icons.preview::before, .md-icon.preview::before { content: "\ead7"; }
+.material-icons.queue::before, .md-icon.queue::before { content: "\eb36"; }
+.material-icons.quiz::before, .md-icon.quiz::before { content: "\eb1b"; }
+.material-icons.redo::before, .md-icon.redo::before { content: "\eb87"; }
+.material-icons.refresh::before, .md-icon.refresh::before { content: "\eb88"; }
+.material-icons.remove_circle::before, .md-icon.remove_circle::before { content: "\eb8a"; }
+.material-icons.remove_circle_outline::before, .md-icon.remove_circle_outline::before { content: "\ea8d"; }
+.material-icons.repeat::before, .md-icon.repeat::before { content: "\eb8b"; }
+.material-icons.repeat_one::before, .md-icon.repeat_one::before { content: "\eb8b"; }
+.material-icons.replay::before, .md-icon.replay::before { content: "\eb88"; }
+.material-icons.restore::before, .md-icon.restore::before { content: "\eb88"; }
+.material-icons.schedule::before, .md-icon.schedule::before { content: "\ea8c"; }
+.material-icons.search::before, .md-icon.search::before { content: "\eb96"; }
+.material-icons.select_all::before, .md-icon.select_all::before { content: "\ea7e"; }
+.material-icons.settings::before, .md-icon.settings::before { content: "\eba3"; }
+.material-icons.settings_remote::before, .md-icon.settings_remote::before { content: "\eba3"; }
+.material-icons.share::before, .md-icon.share::before { content: "\eb34"; }
+.material-icons.shuffle::before, .md-icon.shuffle::before { content: "\eba2"; }
+.material-icons.skip_next::before, .md-icon.skip_next::before { content: "\eb67"; }
+.material-icons.skip_previous::before, .md-icon.skip_previous::before { content: "\eb7f"; }
+.material-icons.slideshow::before, .md-icon.slideshow::before { content: "\eb13"; }
+.material-icons.smartphone::before, .md-icon.smartphone::before { content: "\eabe"; }
+.material-icons.sort_by_alpha::before, .md-icon.sort_by_alpha::before { content: "\eba5"; }
+.material-icons.star::before, .md-icon.star::before { content: "\ebc7"; }
+.material-icons.stop::before, .md-icon.stop::before { content: "\eb7e"; }
+.material-icons.stop_circle::before, .md-icon.stop_circle::before { content: "\ea8a"; }
+.material-icons.storage::before, .md-icon.storage::before { content: "\eb9c"; }
+.material-icons.subtitles::before, .md-icon.subtitles::before { content: "\ebaf"; }
+.material-icons.tablet::before, .md-icon.tablet::before { content: "\eabf"; }
+.material-icons.theaters::before, .md-icon.theaters::before { content: "\eb65"; }
+.material-icons.tune::before, .md-icon.tune::before { content: "\eba4"; }
+.material-icons.tv::before, .md-icon.tv::before { content: "\eac1"; }
+.material-icons.undo::before, .md-icon.undo::before { content: "\ebc9"; }
+.material-icons.usb::before, .md-icon.usb::before { content: "\eb95"; }
+.material-icons.vertical_align_bottom::before, .md-icon.vertical_align_bottom::before { content: "\ea16"; }
+.material-icons.vertical_align_top::before, .md-icon.vertical_align_top::before { content: "\ea19"; }
+.material-icons.video_library::before, .md-icon.video_library::before { content: "\ebd3"; }
+.material-icons.video_settings::before, .md-icon.video_settings::before { content: "\eba4"; }
+.material-icons.videocam::before, .md-icon.videocam::before { content: "\ebd3"; }
+.material-icons.view_comfy::before, .md-icon.view_comfy::before { content: "\eafe"; }
+.material-icons.visibility::before, .md-icon.visibility::before { content: "\ead7"; }
+.material-icons.visibility_off::before, .md-icon.visibility_off::before { content: "\ead6"; }
+.material-icons.volume_up::before, .md-icon.volume_up::before { content: "\ebdb"; }
+.material-icons.vpn_key::before, .md-icon.vpn_key::before { content: "\eb39"; }
+.material-icons.warning::before, .md-icon.warning::before { content: "\ebe2"; }
