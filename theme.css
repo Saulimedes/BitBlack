@@ -175,8 +175,7 @@ div[data-role="controlgroup"] a[data-role="button"] {
     position: absolute !important;
 }
 .headerTabs.sectionTabs {
-    text-size-adjust: 110%;
-    font-size: 110%;
+    text-size-adjust: 100%;
 }
 .pageTitle {
     margin-top: auto;
@@ -1304,7 +1303,7 @@ html body .headerButton:focus:not(.headerUserButtonRound) {
     color: #ffffff !important;
 }
 
-/* Tab buttons (Home / Favorites tabs): transparent bg, white text. */
+/* Tab buttons (Home / Favorites tabs): transparent bg, white text, VT323 font. */
 .skinHeader .emby-tab-button,
 .skinHeader .emby-tab-button:hover,
 .skinHeader .emby-tab-button:focus,
@@ -1318,6 +1317,16 @@ html body .emby-tab-button-active {
     box-shadow: none !important;
 }
 
+html body .emby-tab-button,
+html body .headerTabs .emby-tab-button {
+    font-family: 'VT323', monospace !important;
+    font-size: 1.4rem !important;
+    font-weight: normal !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+}
+
+
 
 /* ==========================================================================
    23. HEADER — black background, content padding to clear fixed header
@@ -1326,11 +1335,15 @@ html body .emby-tab-button-active {
     background-color: #000000 !important;
 }
 
-.layout-tv .pageContainer,
-.layout-tv .mainAnimatedPage,
-.layout-tv .scrollDocument,
-.layout-tv .viewLifetimeContent > .page {
-    padding-top: var(--header-height, 4em) !important;
+/* TV layout: override the media-query margin/padding on page IDs.
+   Must use ID selectors (specificity 111) to beat the media-query
+   rules that use #indexPage (specificity 100) with !important. */
+html.layout-tv #indexPage,
+html.layout-tv #moviesPage,
+html.layout-tv #tvRecommendedPage,
+html.layout-tv #musicRecommendedPage {
+    padding-top: 3em !important;
+    margin-top: 0 !important;
 }
 
 html.layout-tv .skinHeader {
